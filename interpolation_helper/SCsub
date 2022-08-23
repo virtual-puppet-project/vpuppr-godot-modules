@@ -1,0 +1,15 @@
+#!/usr/bin/env python
+
+Import("env")
+Import("env_modules")
+
+thirdparty_obj = []
+
+env_interpolation_helper = env_modules.Clone()
+
+module_obj = []
+
+env_interpolation_helper.add_source_files(module_obj, "*.cpp")
+env.modules_sources += module_obj
+
+env.Depends(module_obj, thirdparty_obj)
